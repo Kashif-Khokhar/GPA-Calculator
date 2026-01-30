@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import { 
   Plus, Calculator, LayoutGrid, Zap, Github, Linkedin, 
   Mail, GraduationCap, Info, RefreshCcw, X, Trash2
@@ -760,7 +760,19 @@ const App = () => {
           onConfirm={(details) => {
             setPrintDetails(details);
             setShowPrintModal(false);
-            setTimeout(() => window.print(), 100);
+            
+            // Temporarily clear title to remove it from PDF header
+            const originalTitle = document.title;
+            document.title = ""; 
+            
+            // Wait for React to render PrintReport
+            setTimeout(() => {
+              window.print();
+              // Restore title after print dialog closes
+              setTimeout(() => {
+                document.title = originalTitle;
+              }, 1000);
+            }, 500);
           }}
         />
 
