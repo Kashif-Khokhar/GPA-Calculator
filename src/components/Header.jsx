@@ -19,10 +19,10 @@ export const Header = ({
           <GraduationCap className="text-white w-8 h-8 sm:w-9 sm:h-9" />
         </div>
         <div>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-slate-900 dark:text-white leading-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight text-[var(--text-main)]">
             Superior GPA <span className="text-brand-600 dark:text-brand-400">Calculator</span>
           </h1>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium max-w-md">
+          <p className="text-xs sm:text-sm font-medium max-w-md text-[var(--text-muted)]">
             Academic performance tracking & detailed analysis platform.
           </p>
         </div>
