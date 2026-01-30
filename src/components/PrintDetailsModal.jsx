@@ -65,7 +65,7 @@ export const PrintDetailsModal = ({ isOpen, onClose, onConfirm }) => {
                       required
                       type="text"
                       className="input-field pl-11 !rounded-2xl"
-                      placeholder="e.g. Kashif Ali"
+                      placeholder="e.g. Kashif"
                       value={details.name}
                       onChange={(e) => setDetails({ ...details, name: e.target.value })}
                     />
