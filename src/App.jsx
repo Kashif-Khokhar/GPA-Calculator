@@ -27,12 +27,13 @@ import { calculateDetailedGPA, calculateQuickGPA } from './utils/gradeCalculatio
 const App = () => {
   // Custom Hooks
   const [isDarkMode, setIsDarkMode] = useDarkMode();
-  const {
+    const {
     semesters,
     setSemesters,
     addSemester,
     removeSemester,
     updateSemester,
+    updateSemesterTerm,
     addCourseToSemester,
     removeCourseFromSemester,
     resetSemesters
@@ -231,6 +232,7 @@ const App = () => {
                       semester={sem}
                       semesterIndex={idx}
                       onUpdate={(courseIdx, field, value) => updateSemester(idx, courseIdx, field, value)}
+                      onUpdateTerm={(newTerm) => updateSemesterTerm(idx, newTerm)}
                       onRemove={() => setShowDeleteSemester(sem.id)}
                       onAddCourse={() => addCourseToSemester(idx)}
                       onRemoveCourse={(courseIdx) => removeCourseFromSemester(idx, courseIdx)}

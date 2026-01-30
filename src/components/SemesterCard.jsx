@@ -4,7 +4,7 @@ import { Plus, Trash2, ChevronUp, ChevronDown } from 'lucide-react';
 import { CourseRow } from './CourseRow.jsx';
 import { getGradePoints } from '../utils/gradeCalculations.js';
 
-export const SemesterCard = ({ semester, onUpdate, onRemove, onAddCourse, onRemoveCourse, semesterIndex }) => {
+export const SemesterCard = ({ semester, onUpdate, onRemove, onAddCourse, onRemoveCourse, onUpdateTerm, semesterIndex }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   // Calculate semester GPA
@@ -24,8 +24,21 @@ export const SemesterCard = ({ semester, onUpdate, onRemove, onAddCourse, onRemo
           <div className="w-10 h-10 bg-brand-100 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 rounded-xl flex items-center justify-center font-bold">
             {semesterIndex + 1}
           </div>
-          <div>
-            <h2 className="text-xl font-bold transition-all">Semester {semesterIndex + 1}</h2>
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-3">
+              <h2 className="text-xl font-bold transition-all">Semester {semesterIndex + 1}</h2>
+              <input
+                type="text"
+                value={semester.term || ''}
+                onChange={(e) => {
+                  e.stopPropagation();
+                  onUpdateTerm(e.target.value);
+                }}
+                onClick={(e) => e.stopPropagation()}
+                placeholder="Academic Term (e.g. FALL 2023)"
+                className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest bg-transparent border-b border-dashed border-slate-300 dark:border-slate-700 focus:border-brand-500 outline-none px-1 py-0.5"
+              />
+            </div>
             <div className="flex gap-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mt-0.5">
               <span>GPA: <span className="text-brand-600 dark:text-brand-400 font-extrabold">{sgpa}</span></span>
               <span>Credits: <span className="text-slate-700 dark:text-slate-300 font-extrabold">{totalCredits}</span></span>

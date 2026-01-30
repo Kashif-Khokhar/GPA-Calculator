@@ -154,7 +154,7 @@ export const PrintReport = ({ details, semesters, cumulativeResults }) => {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg uppercase tracking-wide">Semester {idx + 1}</h3>
-                  <p className="text-xs text-slate-300">Academic Term</p>
+                  <p className="text-xs text-slate-300">{semester.term || 'Academic Term'}</p>
                 </div>
               </div>
               <div className="flex gap-8">
@@ -246,7 +246,7 @@ export const PrintReport = ({ details, semesters, cumulativeResults }) => {
       </div>
 
       {/* Developer and Website Reference */}
-      <div className="mt-6 flex flex-col items-center gap-1 text-[10px] text-slate-400 font-medium">
+      <div className="mt-6 hidden sm:flex flex-col items-center gap-1 text-[10px] text-slate-400 font-medium print:flex">
         <p>Developed by <span className="text-brand-600 font-bold">Kashif Khokhar</span></p>
         <p className="tracking-widest uppercase">https://gpa-calculator-chi-gilt.vercel.app/</p>
       </div>

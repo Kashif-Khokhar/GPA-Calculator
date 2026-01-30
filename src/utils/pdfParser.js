@@ -59,10 +59,15 @@ function parseResultText(text) {
     let semesterIdCounter = 1;
     let pendingCourse = null; // Buffer for multi-line courses
 
-    const createSemester = (label = '') => {
-        console.log('Creating semester:', label);
+    const createSemester = (term = '') => {
+        console.log('Creating semester with term:', term);
+        // Extract only the term part (e.g. FALL 2023) and ignore trailing SGPA/CGPA
+        const termMatch = term.match(/(?:term:\s*)?([a-z]+\s+\d{4})/i);
+        const cleanedTerm = termMatch ? termMatch[1].toUpperCase() : term.replace(/term:/i, '').trim();
+
         return {
             id: Date.now() + semesterIdCounter++,
+            term: cleanedTerm || 'Academic Term',
             courses: []
         };
     };

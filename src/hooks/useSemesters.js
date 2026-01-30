@@ -3,12 +3,13 @@ import { getGradeFromPercentage } from '../utils/calculator.js';
 
 export function useSemesters() {
     const [semesters, setSemesters] = useState([
-        { id: 1, courses: [{ id: 1, name: '', grade: '', credits: '', marks: '' }] }
+        { id: 1, term: 'Academic Term', courses: [{ id: 1, name: '', grade: '', credits: '', marks: '' }] }
     ]);
 
     const addSemester = useCallback(() => {
         setSemesters(prev => [...prev, {
             id: Math.max(...prev.map(s => s.id), 0) + 1,
+            term: 'Academic Term',
             courses: [{ id: 1, name: '', grade: '', credits: '', marks: '' }]
         }]);
     }, []);
@@ -19,6 +20,17 @@ export function useSemesters() {
                 return prev.filter(sem => sem.id !== id);
             }
             return prev;
+        });
+    }, []);
+
+    const updateSemesterTerm = useCallback((semesterIndex, newTerm) => {
+        setSemesters(prev => {
+            const newSemesters = [...prev];
+            newSemesters[semesterIndex] = {
+                ...newSemesters[semesterIndex],
+                term: newTerm
+            };
+            return newSemesters;
         });
     }, []);
 
@@ -80,7 +92,7 @@ export function useSemesters() {
     }, []);
 
     const resetSemesters = useCallback(() => {
-        setSemesters([{ id: 1, courses: [{ id: 1, name: '', grade: '', credits: '', marks: '' }] }]);
+        setSemesters([{ id: 1, term: 'Academic Term', courses: [{ id: 1, name: '', grade: '', credits: '', marks: '' }] }]);
     }, []);
 
     return {
@@ -89,6 +101,7 @@ export function useSemesters() {
         addSemester,
         removeSemester,
         updateSemester,
+        updateSemesterTerm,
         addCourseToSemester,
         removeCourseFromSemester,
         resetSemesters
