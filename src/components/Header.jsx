@@ -35,7 +35,7 @@ export const Header = ({
             onClick={() => setActiveTab('detailed')}
             className={cn(
               "px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer",
-              activeTab === 'detailed' ? "bg-brand-600 text-white shadow-lg shadow-brand-600/30 scale-105" : "text-slate-500 hover:bg-white/60 dark:hover:bg-slate-700/60"
+              activeTab === 'detailed' ? "bg-brand-600 text-white shadow-lg shadow-brand-600/30 scale-105" : "text-[var(--text-muted)] hover:bg-white/60 dark:hover:bg-slate-700/60"
             )}
           >
             <ListTodo className="w-4 h-4" />
@@ -45,7 +45,7 @@ export const Header = ({
             onClick={() => setActiveTab('quick')}
             className={cn(
               "px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer",
-              activeTab === 'quick' ? "bg-brand-600 text-white shadow-lg shadow-brand-600/30 scale-105" : "text-slate-500 hover:bg-white/60 dark:hover:bg-slate-700/60"
+              activeTab === 'quick' ? "bg-brand-600 text-white shadow-lg shadow-brand-600/30 scale-105" : "text-[var(--text-muted)] hover:bg-white/60 dark:hover:bg-slate-700/60"
             )}
           >
             <Zap className="w-4 h-4" />

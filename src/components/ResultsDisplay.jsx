@@ -7,7 +7,7 @@ export const ResultsDisplay = ({ results, activeTab, isDarkMode }) => {
       <div className={`${activeTab === 'detailed' ? 'md:col-span-3' : 'md:col-span-2'} glass rounded-2xl sm:rounded-[2.5rem] p-5 sm:p-6 md:p-8 flex flex-col md:flex-row items-center justify-around gap-6 sm:gap-8 relative overflow-hidden`}>
         
         <div className="text-center md:text-left transition-all">
-          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-900 dark:text-slate-400 mb-1">Total Credits</p>
+          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--text-muted)] mb-1">Total Credits</p>
           <div 
             className="text-4xl sm:text-5xl font-black leading-none tracking-tight" 
             style={{ color: isDarkMode ? '#ffffff' : '#0284c7' }}
@@ -17,7 +17,7 @@ export const ResultsDisplay = ({ results, activeTab, isDarkMode }) => {
         </div>
         <div className="w-px h-16 bg-slate-200 dark:bg-slate-800 hidden md:block"></div>
         <div className="text-center md:text-left transition-all">
-          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-900 dark:text-slate-400 mb-1">
+          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--text-muted)] mb-1">
             {results.semesterGPAs.length <= 1 ? "Semester GPA" : "Cumulative CGPA"}
           </p>
           <div className="text-5xl sm:text-6xl font-black text-brand-600 dark:text-brand-400 drop-shadow-sm leading-none tracking-tight">
