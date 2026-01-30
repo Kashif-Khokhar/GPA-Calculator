@@ -203,7 +203,7 @@ const App = () => {
               <div className="flex items-center justify-between px-2">
                 <div className="flex items-center gap-2">
                    <LayoutGrid className="w-5 h-5 text-brand-600" />
-                   <h2 className="text-xl sm:text-2xl font-bold">Academic Journey</h2>
+                   <h2 className="text-xl sm:text-2xl font-bold">GPA Calculator</h2>
                 </div>
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
                     <button
@@ -211,7 +211,7 @@ const App = () => {
                         className="btn-secondary flex items-center justify-center gap-2 py-2.5 sm:py-3 px-4 sm:px-6"
                     >
                         <Plus className="w-5 h-5" />
-                        New Semester
+                        Add Semester
                     </button>
                     <button
                         onClick={handleCalculate}
@@ -244,14 +244,14 @@ const App = () => {
                <div className="flex items-center justify-between px-2">
                   <div className="flex items-center gap-2">
                     <Zap className="w-5 h-5 text-brand-600" />
-                    <h2 className="text-xl sm:text-2xl font-bold">GPA Wise Entry</h2>
+                    <h2 className="text-xl sm:text-2xl font-bold">CGPA Calculator</h2>
                   </div>
                   <button
                     onClick={addQuickSemester}
                     className="btn-secondary flex items-center gap-2 border-brand-200 dark:border-slate-800"
                   >
                     <Plus className="w-5 h-5" />
-                    Add Semester Row
+                    Add Semester
                   </button>
                </div>
 

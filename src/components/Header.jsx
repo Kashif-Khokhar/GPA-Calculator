@@ -39,7 +39,7 @@ export const Header = ({
             )}
           >
             <ListTodo className="w-4 h-4" />
-            Detailed
+            GPA Calculator
           </button>
           <button 
             onClick={() => setActiveTab('quick')}
@@ -49,7 +49,7 @@ export const Header = ({
             )}
           >
             <Zap className="w-4 h-4" />
-            GPA-Wise
+            CGPA Calculator
           </button>
         </div>
 

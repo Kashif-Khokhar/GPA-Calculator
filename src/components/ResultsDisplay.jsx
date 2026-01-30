@@ -5,11 +5,6 @@ export const ResultsDisplay = ({ results, activeTab, isDarkMode }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in">
       <div className={`${activeTab === 'detailed' ? 'md:col-span-3' : 'md:col-span-2'} glass rounded-2xl sm:rounded-[2.5rem] p-5 sm:p-6 md:p-8 flex flex-col md:flex-row items-center justify-around gap-6 sm:gap-8 relative overflow-hidden`}>
-        <div className="absolute top-0 right-0 p-4 print:hidden">
-          <div className="px-3 py-1 bg-brand-100 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 text-[10px] font-black rounded-full uppercase">
-            {activeTab === 'detailed' ? 'Detailed Analysis' : 'GPA-Wise Result'}
-          </div>
-        </div>
         
         <div className="text-center md:text-left transition-all">
           <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-900 dark:text-slate-400 mb-1">Total Credits</p>
@@ -48,8 +43,8 @@ export const ResultsDisplay = ({ results, activeTab, isDarkMode }) => {
               <Zap className="w-8 h-8 text-brand-600" />
             </div>
             <div>
-              <h3 className="font-bold">GPA-Wise Calculator</h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Enter semester GPAs directly for a fast result.</p>
+              <h3 className="font-bold">CGPA Calculator</h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Enter semester GPAs directly for a fast cumulative result.</p>
             </div>
           </div>
         </div>
