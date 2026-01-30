@@ -233,7 +233,7 @@ export const PrintReport = ({ details, semesters, cumulativeResults }) => {
           <div className="text-center">
             <div className="w-56 mb-3">
               <div className="h-16 flex items-center justify-center mb-2">
-                <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-blue-600 italic" style={{fontFamily: 'cursive'}}>
+                <div className="text-3xl font-bold text-slate-800 tracking-tighter" style={{fontFamily: "'Brush Script MT', 'Apple Chancery', cursive"}}>
                   Authorized
                 </div>
               </div>
@@ -246,9 +246,13 @@ export const PrintReport = ({ details, semesters, cumulativeResults }) => {
       </div>
 
       {/* Developer and Website Reference */}
-      <div className="mt-6 hidden sm:flex flex-col items-center gap-1 text-[10px] text-slate-400 font-medium print:flex">
-        <p>Developed by <span className="text-brand-600 font-bold">Kashif Khokhar</span></p>
-        <p className="tracking-widest uppercase">https://gpa-calculator-chi-gilt.vercel.app/</p>
+      <div className="mt-8 hidden sm:flex flex-col items-center gap-2 text-[10px] text-slate-400 font-bold print:flex">
+        <div className="flex items-center gap-2">
+          <div className="h-px w-8 bg-slate-200"></div>
+          <p className="uppercase tracking-widest text-slate-500">Developed by <span className="text-brand-600">Kashif Khokhar</span></p>
+          <div className="h-px w-8 bg-slate-200"></div>
+        </div>
+        <p className="tracking-[0.3em] font-black opacity-60">GPA-CALCULATOR-CHI-GILT.VERCEL.APP</p>
       </div>
       
       {/* Decorative Bottom Border */}
