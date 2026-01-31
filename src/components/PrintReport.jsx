@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { getGradePoints } from '../utils/gradeCalculations.js';
 
-export const PrintReport = ({ details, semesters, cumulativeResults }) => {
+export const PrintReport = ({ details, semesters }) => {
   // Ensure we have valid data
   const validDetails = details || {};
   const validSemesters = Array.isArray(semesters) ? semesters : [];
@@ -32,21 +32,21 @@ export const PrintReport = ({ details, semesters, cumulativeResults }) => {
   console.log('Semesters data:', validSemesters);
   
   return (
-    <div id="print-report" className="fixed inset-0 invisible print:visible print:relative print:inset-auto bg-gradient-to-br from-slate-50 via-white to-blue-50 text-black p-10 min-h-screen z-[9999]">
+    <div id="print-report" className="fixed inset-0 invisible print:visible print:relative print:inset-auto bg-gradient-to-br from-slate-50 via-white to-blue-50 text-black p-6 z-[9999]">
       {/* Decorative Corner Elements */}
       <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-brand-600/10 to-transparent rounded-br-full"></div>
       <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-600/10 to-transparent rounded-bl-full"></div>
       
       {/* University Header */}
-      <div className="relative text-center mb-12 pb-8 border-b-4 border-double border-brand-600">
+      <div className="relative text-center mb-6 pb-4 border-b-4 border-double border-brand-600">
         {/* Elegant Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-gradient-to-br from-brand-600 to-blue-600 rounded-full blur-3xl"></div>
         </div>
         
         {/* University Logo */}
-        <div className="relative mx-auto mb-6 w-24 h-24 bg-gradient-to-br from-brand-600 to-brand-800 rounded-full flex items-center justify-center shadow-2xl border-4 border-white ring-4 ring-brand-200">
-          <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center">
+        <div className="relative mx-auto mb-4 w-16 h-16 bg-gradient-to-br from-brand-600 to-brand-800 rounded-full flex items-center justify-center shadow-2xl border-4 border-white ring-4 ring-brand-200">
+          <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center">
             <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
               <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
             </svg>
@@ -54,22 +54,22 @@ export const PrintReport = ({ details, semesters, cumulativeResults }) => {
         </div>
         
         {/* University Name */}
-        <h1 className="relative text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-800 via-brand-600 to-blue-700 uppercase tracking-tight mb-3 drop-shadow-sm">
+        <h1 className="relative text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-800 via-brand-600 to-blue-700 uppercase tracking-tight mb-2 drop-shadow-sm">
           The Superior University
         </h1>
-        <p className="text-xl font-semibold text-brand-700 tracking-wide mb-4">Lahore, Pakistan</p>
+        <p className="text-lg font-semibold text-brand-700 tracking-wide mb-2">Lahore, Pakistan</p>
         
         {/* Document Title */}
         <div className="relative inline-block mt-6">
           <div className="absolute inset-0 bg-gradient-to-r from-brand-600 to-blue-600 blur-sm opacity-20"></div>
-          <div className="relative bg-gradient-to-r from-brand-700 via-brand-600 to-blue-700 text-white px-12 py-3 font-bold text-lg uppercase tracking-widest shadow-xl">
+          <div className="relative bg-gradient-to-r from-brand-700 via-brand-600 to-blue-700 text-white px-8 py-2 font-bold text-base uppercase tracking-widest shadow-xl">
             Academic Transcript
           </div>
         </div>
       </div>
 
       {/* Student Details Section */}
-      <div className="mb-10 bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+      <div className="mb-6 bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
         <div className="bg-gradient-to-r from-slate-800 to-slate-700 text-white px-6 py-3">
           <h2 className="text-lg font-bold uppercase tracking-wide flex items-center gap-2">
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -79,7 +79,7 @@ export const PrintReport = ({ details, semesters, cumulativeResults }) => {
           </h2>
         </div>
         
-        <div className="grid grid-cols-2 gap-x-16 gap-y-4 p-8">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-2 p-4">
           <div className="flex items-start gap-4 group">
             <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
               <span className="text-purple-700 font-bold text-sm">👤</span>
@@ -123,9 +123,9 @@ export const PrintReport = ({ details, semesters, cumulativeResults }) => {
       </div>
 
       {/* Academic Results Header */}
-      <div className="relative mb-8">
+      <div className="relative mb-6">
         <div className="absolute inset-0 bg-gradient-to-r from-brand-600 to-blue-600 blur-sm opacity-20"></div>
-        <div className="relative bg-gradient-to-r from-brand-700 to-blue-700 text-white text-center py-3 font-bold uppercase tracking-widest text-base shadow-lg">
+        <div className="relative bg-gradient-to-r from-brand-700 to-blue-700 text-white text-center py-2 font-bold uppercase tracking-widest text-sm shadow-lg">
           📊 Academic Performance Record
         </div>
       </div>
@@ -145,9 +145,9 @@ export const PrintReport = ({ details, semesters, cumulativeResults }) => {
         const averageMarks = totalCredits > 0 ? (totalMarks / totalCredits).toFixed(1) : '0.0';
         
         return (
-          <div key={idx} className="mb-12 avoid-break bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden">
+          <div key={idx} className="mb-4 avoid-break bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden">
             {/* Semester Header */}
-            <div className="bg-gradient-to-r from-slate-700 to-slate-600 text-white px-6 py-4 flex justify-between items-center">
+            <div className="bg-gradient-to-r from-slate-700 to-slate-600 text-white px-4 py-2 flex justify-between items-center">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center font-black text-lg">
                   {idx + 1}
@@ -160,11 +160,11 @@ export const PrintReport = ({ details, semesters, cumulativeResults }) => {
               <div className="flex gap-8">
                 <div className="text-right">
                   <p className="text-xs text-slate-300 uppercase tracking-wider mb-1">SGPA</p>
-                  <p className="text-2xl font-black text-yellow-300">{sgpa}</p>
+                  <p className="text-xl font-black text-yellow-300">{sgpa}</p>
                 </div>
                 <div className="text-right">
                   <p className="text-xs text-slate-300 uppercase tracking-wider mb-1">CGPA</p>
-                  <p className="text-2xl font-black text-green-300">{calculateCumulativeCGPA(idx)}</p>
+                  <p className="text-xl font-black text-green-300">{calculateCumulativeCGPA(idx)}</p>
                 </div>
               </div>
             </div>
@@ -174,22 +174,22 @@ export const PrintReport = ({ details, semesters, cumulativeResults }) => {
               <table className="w-full border-collapse text-sm">
                 <thead>
                   <tr className="bg-gradient-to-r from-slate-100 to-slate-50">
-                    <th className="border-y-2 border-slate-300 px-4 py-3 text-center font-bold text-slate-700 w-16">Sr#</th>
-                    <th className="border-y-2 border-slate-300 px-4 py-3 text-left font-bold text-slate-700">Course Title</th>
-                    <th className="border-y-2 border-slate-300 px-4 py-3 text-center font-bold text-slate-700 w-24">Credit Hrs</th>
-                    <th className="border-y-2 border-slate-300 px-4 py-3 text-center font-bold text-slate-700 w-24">Marks %</th>
-                    <th className="border-y-2 border-slate-300 px-4 py-3 text-center font-bold text-slate-700 w-20">Grade</th>
+                    <th className="border-y-2 border-slate-300 px-3 py-1.5 text-center font-bold text-slate-700 w-16">Sr#</th>
+                    <th className="border-y-2 border-slate-300 px-3 py-1.5 text-left font-bold text-slate-700">Course Title</th>
+                    <th className="border-y-2 border-slate-300 px-3 py-1.5 text-center font-bold text-slate-700 w-24">Credit Hrs</th>
+                    <th className="border-y-2 border-slate-300 px-3 py-1.5 text-center font-bold text-slate-700 w-24">Marks %</th>
+                    <th className="border-y-2 border-slate-300 px-3 py-1.5 text-center font-bold text-slate-700 w-20">Grade</th>
                   </tr>
                 </thead>
                 <tbody>
                   {semester.courses.map((course, cIdx) => (
                     <tr key={cIdx} className={`${cIdx % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'} hover:bg-brand-50/30 transition-colors`}>
-                      <td className="border-b border-slate-200 px-4 py-3 text-center font-semibold text-slate-600">{cIdx + 1}</td>
-                      <td className="border-b border-slate-200 px-4 py-3 text-slate-800">{course.name}</td>
-                      <td className="border-b border-slate-200 px-4 py-3 text-center font-semibold text-slate-700">{(Number(course.credits) || 0).toFixed(1)}</td>
-                      <td className="border-b border-slate-200 px-4 py-3 text-center font-semibold text-blue-700">{course.marks || '0'}%</td>
-                      <td className="border-b border-slate-200 px-4 py-3 text-center">
-                        <span className="inline-block px-3 py-1 bg-gradient-to-r from-brand-600 to-brand-700 text-white font-black rounded-lg shadow-sm">
+                      <td className="border-b border-slate-200 px-3 py-1.5 text-center font-semibold text-slate-600">{cIdx + 1}</td>
+                      <td className="border-b border-slate-200 px-3 py-1.5 text-slate-800">{course.name}</td>
+                      <td className="border-b border-slate-200 px-3 py-1.5 text-center font-semibold text-slate-700">{(Number(course.credits) || 0).toFixed(1)}</td>
+                      <td className="border-b border-slate-200 px-3 py-1.5 text-center font-semibold text-blue-700">{course.marks || '0'}%</td>
+                      <td className="border-b border-slate-200 px-3 py-1.5 text-center">
+                        <span className="inline-block px-3 py-0.5 bg-gradient-to-r from-brand-600 to-brand-700 text-white font-black rounded-lg shadow-sm">
                           {course.grade}
                         </span>
                       </td>
@@ -198,10 +198,10 @@ export const PrintReport = ({ details, semesters, cumulativeResults }) => {
                 </tbody>
                 <tfoot>
                   <tr className="bg-gradient-to-r from-slate-200 to-slate-100 font-bold">
-                    <td colSpan="2" className="border-t-2 border-slate-400 px-4 py-4 text-right text-slate-800 uppercase tracking-wide">Semester Total</td>
-                    <td className="border-t-2 border-slate-400 px-4 py-4 text-center text-brand-700 text-lg font-black">{totalCredits.toFixed(1)}</td>
-                    <td className="border-t-2 border-slate-400 px-4 py-4 text-center text-blue-700 text-lg font-black">{averageMarks}%</td>
-                    <td className="border-t-2 border-slate-400 px-4 py-4 text-center text-slate-500">---</td>
+                    <td colSpan="2" className="border-t-2 border-slate-400 px-3 py-2 text-right text-slate-800 uppercase tracking-wide text-xs">Semester Total</td>
+                    <td className="border-t-2 border-slate-400 px-3 py-2 text-center text-brand-700 text-base font-black">{totalCredits.toFixed(1)}</td>
+                    <td className="border-t-2 border-slate-400 px-3 py-2 text-center text-blue-700 text-base font-black">{averageMarks}%</td>
+                    <td className="border-t-2 border-slate-400 px-3 py-2 text-center text-slate-500">---</td>
                   </tr>
                 </tfoot>
               </table>
@@ -210,8 +210,28 @@ export const PrintReport = ({ details, semesters, cumulativeResults }) => {
         );
       })}
 
+      {/* Grading Plan Section */}
+      <div className="mb-4 text-[9px] text-slate-700 bg-slate-50/80 p-3 rounded-lg border border-slate-200 shadow-inner">
+        <div className="flex gap-4 items-start">
+          <div className="font-bold text-slate-900 uppercase tracking-widest pt-0.5 flex-shrink-0">Grading Plan:</div>
+          <div className="flex flex-wrap gap-x-5 gap-y-1.5 font-medium items-center">
+            <span className="whitespace-nowrap">A: 85% to 100%</span>
+            <span className="whitespace-nowrap">A-: 80% to 84%</span>
+            <span className="whitespace-nowrap">B+: 75% to 79%</span>
+            <span className="whitespace-nowrap">B: 71% to 74%</span>
+            <span className="whitespace-nowrap">B-: 68% to 70%</span>
+            <span className="whitespace-nowrap">C+: 64% to 67%</span>
+            <span className="whitespace-nowrap">C: 61% to 63%</span>
+            <span className="whitespace-nowrap">C-: 58% to 60%</span>
+            <span className="whitespace-nowrap">D+: 54% to 57%</span>
+            <span className="whitespace-nowrap">D: 50% to 53%</span>
+            <span className="whitespace-nowrap">F: 0% to 49%</span>
+          </div>
+        </div>
+      </div>
+
       {/* Final Footer */}
-      <div className="mt-16 pt-8 border-t-2 border-slate-300">
+      <div className="mt-4 pt-2 border-t-2 border-slate-300">
         <div className="flex justify-between items-end">
           {/* Document Info */}
           <div className="space-y-2">
@@ -245,18 +265,10 @@ export const PrintReport = ({ details, semesters, cumulativeResults }) => {
         </div>
       </div>
 
-      {/* Developer and Website Reference */}
-      <div className="mt-8 hidden sm:flex flex-col items-center gap-2 text-[10px] text-slate-400 font-bold print:flex">
-        <div className="flex items-center gap-2">
-          <div className="h-px w-8 bg-slate-200"></div>
-          <p className="uppercase tracking-widest text-slate-500">Developed by <span className="text-brand-600">Kashif Khokhar</span></p>
-          <div className="h-px w-8 bg-slate-200"></div>
-        </div>
-        <p className="tracking-[0.3em] font-black opacity-60">GPA-CALCULATOR-CHI-GILT.VERCEL.APP</p>
-      </div>
+
       
       {/* Decorative Bottom Border */}
-      <div className="mt-4 h-2 bg-gradient-to-r from-brand-600 via-blue-600 to-brand-600 rounded-full"></div>
+      <div className="mt-2 h-2 bg-gradient-to-r from-brand-600 via-blue-600 to-brand-600 rounded-full"></div>
     </div>
   );
 };
