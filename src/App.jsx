@@ -12,6 +12,7 @@ import { Header } from './components/Header.jsx';
 import { ResultsDisplay } from './components/ResultsDisplay.jsx';
 import { PrintDetailsModal } from './components/PrintDetailsModal.jsx';
 import { PrintReport } from './components/PrintReport.jsx';
+import { LoadingScreen } from './components/LoadingScreen.jsx';
 
 // Hooks
 import { useDarkMode } from './hooks/useDarkMode.js';
@@ -55,10 +56,16 @@ const App = () => {
   const [showPrintModal, setShowPrintModal] = useState(false);
   const [printDetails, setPrintDetails] = useState(null);
   const [notification, setNotification] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const fileInputRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Loading timer
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500);
+    return () => clearTimeout(timer);
   }, []);
 
   const handleTabChange = (tab) => {
@@ -167,8 +174,13 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen py-8 px-4 md:px-8 transition-colors duration-300">
-      <div className="max-w-6xl mx-auto space-y-8">
+    <>
+      <AnimatePresence mode="wait">
+        {isLoading && <LoadingScreen key="loader" />}
+      </AnimatePresence>
+
+      <div className="min-h-screen py-8 px-4 md:px-8 transition-colors duration-300">
+        <div className="max-w-6xl mx-auto space-y-8">
         {/* Header */}
         <Header
           activeTab={activeTab}
@@ -849,7 +861,8 @@ const App = () => {
         </AnimatePresence>
       </div>
     </div>
-  );
+  </>
+);
 };
 
 export default App;
